@@ -1,0 +1,103 @@
+newmtl Model001_Material001
+map_Kd sk61_batman_belt.png
+map_bump sk61_batman_belt_nm.png
+
+newmtl Model001_Material002
+map_Kd sk61_batman_cape.png
+map_bump sk61_batman_cape_nm.png
+
+newmtl Model001_Material003
+map_Kd sk61_batman_cape.png
+map_bump sk61_batman_cape_nm.png
+
+newmtl Model001_Material004
+map_Kd sk61_batman_head.png
+map_bump sk61_batman_head_nm.png
+
+newmtl Model001_Material005
+map_Kd sk61_batman_head.png
+map_bump sk61_batman_head_nm.png
+
+newmtl Model001_Material006
+map_Kd sk61_batman_bodyUpper.png
+map_bump sk61_batman_bodyUpper_nm.png
+
+newmtl Model001_Material007
+map_Kd sk61_batman_head.png
+map_bump sk61_batman_head_nm.png
+
+newmtl Model001_Material008
+map_Kd sk61_bruceWayne_head.png
+map_bump sk61_bruceWayne_head_nm.png
+
+newmtl Model001_Material009
+map_Kd sk61_batman_arms.png
+map_bump sk61_batman_arms_nm.png
+
+newmtl Model001_Material010
+map_Kd sk61_batman_bodyUpper.png
+map_bump sk61_batman_bodyUpper_nm.png
+
+newmtl Model001_Material011
+map_Kd sk61_batman_hands.png
+map_bump sk61_batman_hands_nm.png
+
+newmtl Model001_Material012
+map_Kd sk61_batman_bodyLower.png
+map_bump sk61_batman_bodyLower_nm.png
+
+newmtl Model001_Material013
+map_Kd sk_bmSharedParts_mouth.png
+map_bump sk_bmSharedParts_mouth_nm.png
+
+newmtl Model001_Material014
+map_Kd sk61_batman_bodyLower.png
+map_bump sk61_batman_bodyLower_nm.png
+
+newmtl Model001_Material015
+map_Kd sk61_batman_belt_detailout.png
+map_bump sk61_batman_belt_nm.png
+
+newmtl Model001_Material016
+map_Kd sk61_batman_cape_detailout.png
+map_bump sk61_batman_cape_nm.png
+
+newmtl Model001_Material017
+map_Kd sk61_batman_cape_detailout.png
+map_bump sk61_batman_cape_nm.png
+
+newmtl Model001_Material018
+map_Kd sk61_bruceWayne_head_detail.png
+map_bump sk61_bruceWayne_head_nm.png
+
+newmtl Model001_Material019
+map_Kd sk61_batman_head_detailout.png
+map_bump sk61_batman_head_nm.png
+
+newmtl Model001_Material020
+map_Kd sk61_batman_head_detailout.png
+map_bump sk61_batman_head_nm.png
+
+newmtl Model001_Material021
+map_Kd sk61_batman_bodyUpper_detailout.png
+map_bump sk61_batman_bodyUpper_nm.png
+
+newmtl Model001_Material022
+map_Kd sk61_batman_arms_detailout.png
+map_bump sk61_batman_arms_nm.png
+
+newmtl Model001_Material023
+map_Kd sk61_batman_bodyUpper_detailout.png
+map_bump sk61_batman_bodyUpper_nm.png
+
+newmtl Model001_Material024
+map_Kd sk61_batman_hands_detailout.png
+map_bump sk61_batman_hands_nm.png
+
+newmtl Model001_Material025
+map_Kd sk61_batman_bodyLower_detailout.png
+map_bump sk61_batman_bodyLower_nm.png
+
+newmtl Model001_Material026
+map_Kd lightmap_white.png
+

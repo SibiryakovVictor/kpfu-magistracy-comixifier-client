@@ -9,6 +9,7 @@ public class ArrowToggle : MonoBehaviour
     private Transform Checkmark;
     [SerializeField]
     private Toggle MyToggle;
+    
     void Start()
     {
         Checkmark = gameObject.transform.FindDeepChild("Checkmark");

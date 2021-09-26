@@ -1,0 +1,11 @@
+Model Information:
+* title:	Spider-Man
+* source:	https://sketchfab.com/3d-models/spider-man-e7a0ffa3e3174634bdb1edc08ac0bd7c
+* author:	CipherFilms (https://sketchfab.com/CipherFilms)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Spider-Man" (https://sketchfab.com/3d-models/spider-man-e7a0ffa3e3174634bdb1edc08ac0bd7c) by CipherFilms (https://sketchfab.com/CipherFilms) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

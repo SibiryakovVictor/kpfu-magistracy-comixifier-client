@@ -45,6 +45,9 @@ public class CameraSetter : MonoBehaviour
     private bool isFromBehind;
 
     private List<GameObject> FocusGroup;
+    
+    public delegate void OnSceneUpdateDelegate();
+    public event OnSceneUpdateDelegate OnSceneUpdatedEvent;
 
     void Start()
     {
@@ -249,6 +252,10 @@ public class CameraSetter : MonoBehaviour
         ResultPoint.y = focusGroup.OrderByDescending(x => x.GetComponent<SceneObject>().Bounds.size.y)
                                                             .First().GetComponent<SceneObject>()
                                                             .Bounds.size.y / 2;
+        ResultPoint.z = focusGroup.OrderByDescending(x => x.GetComponent<SceneObject>().Bounds.size.z)
+            .First().GetComponent<SceneObject>()
+            .Bounds.size.z / 2;
+        
         return ResultPoint;
     }
     private float CalculateSpringArmLength(Vector3 CenterOfFrame, float GivenCoefficient, List<GameObject> focusGroup)
@@ -326,6 +333,8 @@ public class CameraSetter : MonoBehaviour
             if (orphange.transform.position == Vector3.zero)
                 orphange.transform.position = new Vector3(orphange.transform.position.x, orphange.transform.position.x, orphange.transform.position.z + 25f);
         }
+        
+        OnSceneUpdatedEvent?.Invoke();
     }
     public void ExecuteParameters(ShotParameters shotParameters)
     {

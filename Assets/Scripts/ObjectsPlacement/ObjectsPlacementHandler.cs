@@ -39,20 +39,25 @@ public class ObjectsPlacementHandler
     
     private void ShotElementsBreakdown(string rawinput)
     {
+        Debug.Log("ShotElementsBreakdown: start");
         if(Helper.ExcludeCameraTags(rawinput).Equals(LastRawInput))
         {
+            Debug.Log("ShotElementsBreakdown: equals lastRawInput");
             OnSentenceProcessedEvent?.Invoke(null);
             return;
         }
         LastRawInput = Helper.ExcludeCameraTags(rawinput);
         if (string.IsNullOrWhiteSpace(LastRawInput))
         {
+            Debug.Log("ShotElementsBreakdown: lastRawInput is null or whitespace");
             OnSentenceProcessedEvent?.Invoke(null);
             return;
         }
 
         var input = Regex.Replace(LastRawInput, @"[!?.]+", "");
         input = input.AddSpacesBetweenElements();
+        
+        Debug.Log("ShotElementsBreakdown: input: " + input);
 
         var tagItemSeq = new Dictionary<DescriptionTag, ShotElement>();
         
@@ -205,13 +210,13 @@ public class ObjectsPlacementHandler
     
     private Parse ParseSentence(string sentence)
     {
-        var _parser = new EnglishTreebankParser(Directory.GetCurrentDirectory() + @"\Models\", true, false);
+        var _parser = new EnglishTreebankParser(Directory.GetCurrentDirectory() + @"/Models/", true, false); //TODO: replace \ to /
 
         return _parser.DoParse(sentence);
     }
     private string[] SplitSentences(string paragraph)
     {
-        var _sentenceDetector = new EnglishMaximumEntropySentenceDetector(Directory.GetCurrentDirectory() + @"\Models\" + "EnglishSD.nbin");
+        var _sentenceDetector = new EnglishMaximumEntropySentenceDetector(Directory.GetCurrentDirectory() + @"/Models/" + "EnglishSD.nbin"); //TODO: replace \ to /
 
         return _sentenceDetector.SentenceDetect(paragraph);
     }
@@ -244,7 +249,7 @@ public class ObjectsPlacementHandler
     }
     private string IdentifyCoreferents(IEnumerable<string> sentences)
     {
-        var corefPath = Directory.GetCurrentDirectory() + @"\Models\Coref\";
+        var corefPath = Directory.GetCurrentDirectory() + @"/Models/Coref/"; //TODO: replace \ to /
         var coreferenceFinder = new TreebankLinker(corefPath);
         var parsedSentences = new List<Parse>();
         foreach (string sentence in sentences)

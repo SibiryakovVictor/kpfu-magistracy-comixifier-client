@@ -26,7 +26,6 @@ public class PreviewButton : MonoBehaviour
         ScreenshotHandler.TakeScreenshot_Static(160 * 4, 90 * 4, previewIndex);
         Index = previewIndex;
         Invoke("ApplyImage", 0.5f);
-
     }
     private void OnToggleValueChanged(bool isOn)
     {

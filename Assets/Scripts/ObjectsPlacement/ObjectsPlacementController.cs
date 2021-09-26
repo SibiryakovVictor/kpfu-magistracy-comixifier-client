@@ -39,7 +39,10 @@ public class ObjectsPlacementController : MonoBehaviour
     }
     public void SceneDefaultContentSetup()
     {
-        string defName = "Doll";
+        // string defName = "Doll";
+        // string defName = "Joker_Arkham_City";
+        // string defName = "Batman_Teltale_Series_Batman_mixamo";
+        string defName = "SpiderManOfficial_mixamo";
         if (FocusLayer.Contains(AvailableObjectsController.GetObject(defName))) { return; }
 
         var dummy = new ShotElement(defName, 1, ShotHierarchyRank.InFocus, "Idle");
@@ -122,6 +125,8 @@ public class ObjectsPlacementController : MonoBehaviour
             var Layer = new List<GameObject>();
             foreach (var element in layerElements)
             {
+                Debug.Log("SpawnAllElements name: " + element.PropName);
+                
                 switch (element.Rank)
                 {
                     case ShotHierarchyRank.InFocus:
@@ -180,19 +185,23 @@ public class ObjectsPlacementController : MonoBehaviour
         {
             var sceneGO = Instantiate(obj);
             sceneGO.SetActive(true);
-            if (sceneGO.GetComponent<SceneObject>().CurrentState != element.State)
+            if (sceneGO.GetComponent<SceneObject>().CurrentState != element.State) {
+                Debug.Log("SpawnFocusedObject: currentState != element.state");
                 sceneGO.GetComponent<SceneObject>().SetStateByName(element.State);
+            }
+                
 
             Vector3 newObjectPos = Vector3.zero;
             newObjectPos.x -= FocusLayer.Count == 0 ? 0f : (FocusLayer[FocusLayer.Count - 1].GetComponent<SceneObject>().Bounds.size.x / 2
                     + sceneGO.GetComponent<SceneObject>().Bounds.size.x / 2) /2;
-
+            
             sceneGO.transform.position = newObjectPos;//TODO: not one but calculated shit
             sceneGO.name = obj.name;
             LastShotElements.Add(element, sceneGO);
             FocusLayer.Add(sceneGO);
             return sceneGO;
         }
+        Debug.Log("SpawnFocusedObject: return null");
         return null;
     }
     private void ModifySceneObject(ShotElement oldelement, ShotElement newelement)

@@ -208,7 +208,10 @@ public class SceneObject : MonoBehaviour, INameAlternatable
     }
     private void SetState(string stateName)
     {
-        if (Animator == null) { return; }
+        if (Animator == null) {
+            Debug.LogError("SceneObject.SetState: no Animator");
+            return; 
+        }
         if( !Animator.HasState(0, Animator.StringToHash(stateName))) 
         { 
             Debug.LogError(string.Format("{0} has not such state:{1}", Name, stateName )); 

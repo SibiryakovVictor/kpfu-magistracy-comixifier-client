@@ -27,32 +27,38 @@ public class FrameDescription : MonoBehaviour
         if (DescriptionSource == null)
         {
             DescriptionSource = GameObject.Find("DescriptionField").GetComponent<InputField>();
-            GameObject.Find("DescriptionField").GetComponent<InputField>().text = "azaz";
+            // GameObject.Find("DescriptionField").GetComponent<InputField>().text = "azaz";
             Debug.Log(string.Format("text: {0}", GameObject.Find("DescriptionField").GetComponent<InputField>().text));
         }
-        GameObject.Find("DescriptionField").GetComponent<InputField>().text = "azaz";
+        // GameObject.Find("DescriptionField").GetComponent<InputField>().text = "azaz";
     }
+
+    public void MarkAndParseTree(string text)
+    {
+        RawFrameInput = text;
+        string itemMarkedInput = RawFrameInput.ExcludeCameraTags();
+        if (!string.IsNullOrEmpty(itemMarkedInput) && !Equals(LastSceneTags, itemMarkedInput))
+        {
+            LastSceneTags = itemMarkedInput;
+            itemMarkedInput = MarkItems(itemMarkedInput);
+            ParsedParts = TreeParsing(itemMarkedInput).ToArray();
+        }
+
+        OnDescriptionChangedEvent?.Invoke(RawFrameInput);
+    }
+    
     public void OnInputEnter()
     {
+        Debug.Log($"From FrameDescription: {DescriptionSource.text}");
+        
         if (!string.IsNullOrWhiteSpace(DescriptionSource.text) && DescriptionSource.text != RawFrameInput)
         {
-            RawFrameInput = DescriptionSource.text;
-            string itemMarkedInput = RawFrameInput.ExcludeCameraTags();
-            if (!string.IsNullOrEmpty(itemMarkedInput) && !Equals(LastSceneTags, itemMarkedInput))
-            {
-                LastSceneTags = itemMarkedInput;
-                itemMarkedInput = MarkItems(itemMarkedInput);
-                ParsedParts = TreeParsing(itemMarkedInput).ToArray();
-            }
-            //else
-            //    ParsedParts = null;
-            
-            OnDescriptionChangedEvent?.Invoke(RawFrameInput);
+            MarkAndParseTree(DescriptionSource.text);
         }
     }
     private Parse[] TreeParsing(string input)
     {
-        var modelPath = Directory.GetCurrentDirectory() + @"\Models\";
+        var modelPath = Directory.GetCurrentDirectory() + @"/Models/"; //TODO: replace \ to /
         var parser = new EnglishTreebankParser(modelPath);
         var treeParsing = parser.DoParse(Helper.ExcludeCameraTags(input));
 
